@@ -68,6 +68,11 @@ macro_rules! time_if_impl {
 
         #[impl_plat_interface]
         impl axplat::time::TimeIf for $name {
+            /// Returns the IRQ number for the timer interrupt.
+            fn irq_num() -> usize {
+                crate::config::devices::TIMER_IRQ
+            }
+
             /// Returns the current clock time in hardware ticks.
             fn current_ticks() -> u64 {
                 $crate::generic_timer::current_ticks()

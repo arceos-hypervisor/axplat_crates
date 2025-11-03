@@ -91,6 +91,11 @@ struct TimeIfImpl;
 
 #[impl_plat_interface]
 impl TimeIf for TimeIfImpl {
+    /// Returns the IRQ number for the timer interrupt.
+    fn irq_num() -> usize {
+        crate::config::devices::TIMER_IRQ
+    }
+
     /// Returns the current clock time in hardware ticks.
     fn current_ticks() -> u64 {
         Time::read() as _
