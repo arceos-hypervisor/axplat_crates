@@ -47,6 +47,9 @@ impl MemIf for MemIfImpl {
 
     /// Returns the kernel address space base virtual address and size.
     fn kernel_aspace() -> (VirtAddr, usize) {
-        (va!(crate::config::plat::KERNEL_ASPACE_BASE), crate::config::plat::KERNEL_ASPACE_SIZE)
+        (
+            va!(crate::config::plat::KERNEL_ASPACE_BASE),
+            crate::config::plat::KERNEL_ASPACE_SIZE,
+        )
     }
 }
