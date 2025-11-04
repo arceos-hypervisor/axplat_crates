@@ -18,7 +18,11 @@ struct EarlyConsole;
 
 impl Write for EarlyConsole {
     fn write_str(&mut self, s: &str) -> Result {
-        write_bytes(s.as_bytes());
+        let sp = s.split('\n');
+        for line in sp {
+            write_bytes(line.as_bytes());
+            write_bytes(b"\r\n");
+        }
         Ok(())
     }
 }

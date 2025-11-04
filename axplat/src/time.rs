@@ -22,6 +22,9 @@ pub const NANOS_PER_MICROS: u64 = 1_000;
 /// Time-related interfaces.
 #[def_plat_interface]
 pub trait TimeIf {
+    /// Returns the IRQ number for the timer interrupt.
+    fn irq_num() -> usize;
+
     /// Returns the current clock time in hardware ticks.
     fn current_ticks() -> u64;
 
